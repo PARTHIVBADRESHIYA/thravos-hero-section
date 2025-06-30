@@ -43,7 +43,7 @@ const fadeUp = {
 const AthletesSection = () => (
   <section className="w-full pt-16 pb-24 px-4 bg-[#0f0f0f] flex flex-col items-center">
     <motion.h2
-      className="text-[22px] md:text-[38px] text-white mb-2 text-center font-unbounded"
+      className="text-[22px] md:text-[38px] text-white mb-2 md: mt-12 text-center font-unbounded"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -102,13 +102,8 @@ const AthletesSection = () => (
       ))}
     </div>
 
-    <div
-      className="w-full h-[2px] mt-16 md:mt-20"
-      style={{
-        background:
-          "linear-gradient(90deg, rgba(50, 203, 191, 0.00) 0%, #19655F 50%, rgba(50, 203, 191, 0.00) 100%)",
-      }}
-    ></div>
+    <div className="absolute inset-x-0 mt-6 h-[2px] bg-gradient-to-r from-transparent via-[#2BB6A9] to-transparent z-[1000] pointer-events-none" />
+
   </section>
 
 );

@@ -42,10 +42,13 @@ export default function HowItWorks() {
   return (
     <section className="w-full pt-2 pb-10 bg-[#0f0f0f] text-white flex flex-col items-center ">
 
+          <div className="absolute inset-x-0  h-[2px] bg-gradient-to-r from-transparent via-[#2BB6A9] to-transparent z-[1000] pointer-events-none" />
+
+
       <div className="hidden lg:block absolute lg:bottom-20 lg:left-[-400px] rounded-[462px] blur-[109.16px] w-full max-w-[462px] h-[462px] bg-[rgba(49,165,154,0.40)] z-0 pointer-events-none" />
 
       <motion.h2
-        className="text-4xl md:text-[28px] font-unbounded text-center mb-2 mt-0"
+        className="text-4xl md:text-[28px] font-unbounded text-center mb-2 mt-4 md:mt-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}

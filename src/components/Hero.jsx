@@ -2,14 +2,11 @@ import { motion } from "framer-motion";
 
 function Hero() {
     return (
-        <section className="w-full bg-[#0f0f0f] text-white relative overflow-hidden">
-            {/* ✅ Background Glow (like your screenshot) */}
-
+        <section className="w-full bg-[#0f0f0f] text-white relative overflow-visible">
+            {/* ✅ Background Glow */}
             <div className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4 md:px-8 flex flex-col justify-center md:py-9 lg:py-12">
-
                 {/* Hero Container */}
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-20= flex-grow py-6 sm:py-10 md:py-20 ">
-
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-20 flex-grow py-6 sm:py-10 md:py-20">
                     {/* Left Section */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
@@ -46,7 +43,7 @@ function Hero() {
                         className="w-full md:w-1/2 flex justify-center md:justify-end relative"
                     >
                         <div className="relative z-10 w-full max-w-[300px] sm:max-w-sm md:max-w-lg h-40 sm:h-64 md:h-80 rounded-xl overflow-hidden bg-black shadow-lg flex items-center justify-center">
-                            {/* ✅ Background shadow now contained only behind video */}
+                            {/* ✅ Mobile Glow */}
                             <div className="absolute -bottom-10 -right-10 w-[300px] h-[300px] bg-[#2BB6A9] opacity-40 blur-[100px] rounded-full z-0 pointer-events-none md:hidden" />
 
                             <video
@@ -58,33 +55,32 @@ function Hero() {
                             </video>
                         </div>
 
-                        {/* ✅ For md+ (keep previous full blur) */}
+                        {/* ✅ Desktop Glow */}
                         <div className="hidden md:block absolute bottom-[-90px] right-[-60px] w-[520px] h-[480px] bg-[#2BB6A9] opacity-40 blur-[100px] rounded-[350px] z-0 pointer-events-none" />
                     </motion.div>
-
                 </div>
-
-                {/* Gradient Divider */}
-                <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#19655F] to-transparent opacity-100 mt-8 mb-6 sm:opacity-90 sm:mt-6" />
-
-                {/* Welcome Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
-                    className="text-center w-full flex flex-col items-center px-2"
-                >
-                    <h3 className="font-unbounded text-base sm:text-lg md:text-2xl mb-2  md:mt-7 text-white">
-                        Welcome to Thravos
-                    </h3>
-                    <p className="text-gray-300 text-xs sm:text-sm md:text-lg max-w-xl mx-auto">
-                        Join the next era of sports with Thravos where AI, fans, and real rewards power your rise.
-                        Showcase your skills, grow your following, and earn through performance.
-                        <span className="block text-white  font-semibold mt-1">We're live. You in?</span>
-                    </p>
-                </motion.div>
             </div>
+
+            {/* ✅ Full-width Gradient Divider */}
+            <div className="absolute inset-x-0 mt-6 h-[2px] bg-gradient-to-r from-transparent via-[#2BB6A9] to-transparent z-[1000] pointer-events-none" />
+
+            {/* Welcome Section */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+                className="text-center w-full flex flex-col items-center px-2 mt-20"
+            >
+                <h3 className="font-unbounded text-base sm:text-lg md:text-2xl mb-2 text-white">
+                    Welcome to Thravos
+                </h3>
+                <p className="text-gray-300 text-xs sm:text-sm md:text-lg max-w-xl mx-auto">
+                    Join the next era of sports with Thravos where AI, fans, and real rewards power your rise.
+                    Showcase your skills, grow your following, and earn through performance.
+                    <span className="block text-white font-semibold mt-1">We're live. You in?</span>
+                </p>
+            </motion.div>
         </section>
     );
 }
