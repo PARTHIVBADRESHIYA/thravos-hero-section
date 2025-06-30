@@ -10,14 +10,7 @@ const imageVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut", delay: 0.2 } },
 };
 
-const FeatureCard = ({
-  title,
-  description,
-  image,
-  isFirst,
-  isSecond,
-  isThird,
-}) => (
+const FeatureCard = ({ title, description, image, isFirst, isSecond, isThird }) => (
   <div
     className={`
       relative rounded-[32px] overflow-hidden flex flex-col justify-between
@@ -26,68 +19,60 @@ const FeatureCard = ({
       p-6 md:p-8
     `}
   >
-    {/* BACKGROUND GLOW EFFECTS for FIRST CARD */}
+    {/* ======= BACKGROUND GLOW EFFECTS ======= */}
+
+    {/* FIRST CARD glow: behind image + right side only */}
     {isFirst && (
       <>
-        {/* Glow behind and above the image */}
         <div
-          className="absolute left-1/2 top-[40%] -translate-x-1/3 -translate-y-1/2 w-[340px] h-[750px] z-0 pointer-events-none"
+          className="absolute left-1/2 top-[45%] -translate-x-1/3 -translate-y-1/2 w-[350px] h-[600px] z-0 pointer-events-none"
           style={{
-            background:
-              "radial-gradient(circle, rgba(0,255,224,0.40) 0%, transparent 60%)",
-            filter: "blur(32px)",
+            background: "radial-gradient(circle, rgba(0,255,224,0.5) 0%, transparent 70%)",
+            filter: "blur(90px)",
           }}
         />
-        {/* Glow at left-bottom */}
         <div
-          className="absolute left-0 bottom-0 w-[280px] h-[180px] z-0 pointer-events-none"
+          className="absolute right-[-50px] top-[-10%] w-[300px] h-[300px] z-0 pointer-events-none"
           style={{
-            background:
-              "radial-gradient(ellipse at 0% 100%, rgba(0,255,224,0.5) 0%, transparent 100%)",
-            filter: "blur(32px)",
+            background: "radial-gradient(circle, rgba(43,182,169,0.5) 0%, transparent 70%)",
+            filter: "blur(90px)",
           }}
         />
       </>
     )}
 
+    {/* SECOND CARD glow: top-left and behind image (left only) */}
     {isSecond && (
       <>
-        <div className="absolute inset-0 z-0 rounded-[32px] blur-2xl opacity-20 pointer-events-none bg-gradient-to-br from-teal-300/30 to-transparent" />
         <div
-          className="absolute top-0 left-0 w-[350px] h-[250px] z-0 pointer-events-none"
+          className="absolute top-[-30px] left-[30px] w-[300px] h-[250px] z-0 pointer-events-none"
           style={{
-            background:
-              "radial-gradient(circle at 70% 50%, rgba(0,255,224,0.3) 0%, transparent 70%)",
-            filter: "blur(24px)",
+            background: "radial-gradient(circle, rgba(0,255,224,0.3) 0%, transparent 80%)",
+            filter: "blur(32px)",
+          }}
+        />
+        <div
+          className="absolute left-[-120px] bottom-[30%] w-[300px] h-[300px] z-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(43,182,169,0.35) 0%, transparent 80%)",
+            filter: "blur(36px)",
           }}
         />
       </>
     )}
 
+    {/* THIRD CARD glow: only at left-bottom */}
     {isThird && (
       <div
-        className="absolute left-0 bottom-0 w-[220px] h-[220px] z-0 pointer-events-none"
+        className="absolute left-[-40px] bottom-[-20px] w-[300px] h-[200px] z-0 pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle at 0% 70%, rgba(0,255,224,0.8) 0%, transparent 80%)",
-          filter: "blur(24px)",
+          background: "radial-gradient(circle at 0% 100%, rgba(0,255,224,0.4) 0%, transparent 80%)",
+          filter: "blur(36px)",
         }}
       />
     )}
 
-    {/* GLOBAL BACKGROUND GLOW */}
-    <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-      <div
-        className="w-[360px] h-[360px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(43,182,169,0.15) 0%, transparent 100%)",
-          filter: "blur(40px)",
-        }}
-      />
-    </div>
-
-    {/* TEXT SECTIONS */}
+    {/* TEXT SECTION */}
     {isSecond ? (
       <motion.div
         className="z-20 absolute bottom-0 left-0 px-6 pb-6 text-left"
@@ -96,7 +81,7 @@ const FeatureCard = ({
         viewport={{ once: true, amount: 0.3 }}
         variants={textVariants}
       >
-        <h3 className="text-white  font-['unbounded'] text-[20px] md:text-[22px] leading-tight mb-2">
+        <h3 className="text-white font-['unbounded'] text-[20px] md:text-[22px] leading-tight mb-2">
           Connect
         </h3>
         <p className="text-gray-300 font-['open-sans'] text-[15px] md:text-[18px] leading-snug">
@@ -105,13 +90,16 @@ const FeatureCard = ({
       </motion.div>
     ) : (
       <motion.div
-        className="z-20 absolute top-0 left-0 px-6 pt-6 text-left"
+        className={`z-20 ${isSecond
+          ? "absolute bottom-0 left-0 px-6 pb-6 text-left"
+          : "relative md:absolute top-0 left-0 px-6 pt-6 text-left"
+          }`}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={textVariants}
       >
-        <h3 className="text-white  font-['unbounded'] text-[20px] md:text-[22px] leading-tight mb-2">
+        <h3 className="text-white font-['unbounded'] text-[20px] md:text-[22px] leading-tight mb-2">
           {title}
         </h3>
         <p className="text-gray-300 font-['open-sans'] text-[15px] md:text-[20px] leading-snug">
@@ -123,17 +111,16 @@ const FeatureCard = ({
           )}
           {title === "Monetize" && (
             <>
-              Make it happen with <br />  AI and
-              tokenization tools
+              Make it happen with <br /> AI and tokenization tools
             </>
           )}
         </p>
       </motion.div>
     )}
 
-    {/* IMAGE */}
+    {/* IMAGE SECTION */}
     <motion.div
-      className={`relative flex-1 flex items-end justify-center w-full z-10 ${isSecond ? 'pt-5 pb-32 pl-10 ' : 'pb-1 pt-25 pl-10'}`}
+      className={`relative flex-1 flex items-end justify-center w-full z-10 ${isSecond ? 'pt-5 pb-32 pl-10' : 'pb-1 pt-25 pl-10'}`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -142,7 +129,7 @@ const FeatureCard = ({
       <img
         src={image}
         alt={title}
-        className={`object-contain w-[100%] ${isSecond ? 'max-h-[450px]' : 'max-h-[450px]'} drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]`}
+        className={`object-contain w-[100%] max-h-[450px] drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]`}
         draggable={false}
       />
     </motion.div>

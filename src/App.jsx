@@ -4,17 +4,16 @@ import Footer from "./components/Footer";
 import CardSection from "./components/CardSection";
 import AthletesSection from "./components/AthletesSection";
 import HowItWorks from "./components/Howitworks";
-import SportsSection from "./components/SportsSection";
+
 
 function App() {
   return (
-    <div className="bg-[#18191c] min-h-screen">
+    <div className="bg-[#18191c] min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
       <CardSection />
       <AthletesSection />
       <HowItWorks />
-      <SportsSection />
       <Footer />
     </div>
   );

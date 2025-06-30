@@ -33,9 +33,9 @@ const cardVariants = {
 };
 
 const CardSection = () => (
-  <section className="w-full px-4 py-12 bg-[#0f0f0f] flex flex-col items-center">
+  <section className="w-full px-4 py-10 md:py-6 bg-[#0f0f0f] flex flex-col items-center">
     <div
-      className="w-full h-[2px] mb-10"
+      className="w-full h-[2px] mb-10 "
       style={{
         background:
           "linear-gradient(90deg, rgba(50, 203, 191, 0.00) 0%, #19655F 50%, rgba(50, 203, 191, 0.00) 100%)",

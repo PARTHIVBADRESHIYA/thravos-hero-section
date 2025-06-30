@@ -51,6 +51,7 @@ const AthletesSection = () => (
     >
       Athletes rising
     </motion.h2>
+
     <motion.p
       className="text-white text-2xl md:text-[28px] mb-12 text-center font-open-sans"
       initial="hidden"
@@ -61,7 +62,7 @@ const AthletesSection = () => (
       Join our growing community of athletes
     </motion.p>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-16 w-full max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 w-full max-w-7xl mx-auto px-4">
       {athletes.map((athlete, idx) => (
         <motion.div
           key={idx}
@@ -71,11 +72,9 @@ const AthletesSection = () => (
           viewport={{ once: true, amount: 0.3 }}
           variants={cardVariants}
         >
-          <div
-            className="relative rounded-[32px] overflow-hidden flex flex-col items-center justify-between w-full max-w-[430px] h-[500px] bg-[#181A1B] border border-[#2BB6A9]/20 p-0 pb-12 mx-auto"
-          >
+          <div className="relative rounded-[24px] md:rounded-[32px] overflow-hidden flex flex-col items-center justify-between w-full h-auto md:h-[500px] bg-[#181A1B] border border-[#2BB6A9]/20 p-4 md:p-0 pb-8 md:pb-12 mx-auto">
             <div
-              className="w-[330px] h-[350px] rounded-[32px] mx-auto mt-8 mb-4 flex items-center justify-center bg-transparent"
+              className="w-full h-[300px] md:w-[330px] md:h-[350px] rounded-[24px] md:rounded-[32px] mx-auto mt-4 md:mt-8 mb-4 flex items-center justify-center bg-transparent"
               style={{
                 background:
                   "radial-gradient(circle at bottom, rgba(0,255,224,0.32) 30%, rgba(0,255,224,0.10) 60%, #181A1B 100%)",
@@ -84,31 +83,34 @@ const AthletesSection = () => (
               <img
                 src={athlete.image}
                 alt={athlete.name}
-                className="w-[380px] h-[300px] object-cover rounded-[32px] mt-10 ml-5"
+                className="w-[85%] md:w-[380px] h-[220px] md:h-[300px] object-cover rounded-[24px] md:rounded-[32px] mt-4 md:mt-10"
               />
             </div>
 
-            <div className="text-center flex items-center justify-center   gap-2">
-              <span className="text-white text-3xl md:text-[28px] font-bold font-open-sans ">
+            <div className="text-center flex items-center justify-center gap-2">
+              <span className="text-white text-2xl md:text-[28px] font-bold font-open-sans">
                 {athlete.name}
               </span>
               {athlete.icon}
             </div>
 
-            <p className="text-gray-300 text-xl md:text-[20px] font-light font-open-sans text-center mt-0 mb-2">{athlete.role}</p>
+            <p className="text-gray-300 text-base md:text-[20px] font-light font-open-sans text-center mt-1 mb-2">
+              {athlete.role}
+            </p>
           </div>
         </motion.div>
       ))}
     </div>
 
     <div
-      className="w-full h-[2px] mt-20"
+      className="w-full h-[2px] mt-16 md:mt-20"
       style={{
         background:
           "linear-gradient(90deg, rgba(50, 203, 191, 0.00) 0%, #19655F 50%, rgba(50, 203, 191, 0.00) 100%)",
       }}
     ></div>
   </section>
+
 );
 
 export default AthletesSection;
