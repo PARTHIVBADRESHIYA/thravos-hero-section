@@ -14,16 +14,18 @@ const fadeUp = {
 const Footer = () => {
   return (
     <footer className="w-full text-white bg-[#02404b] overflow-hidden">
-      {/* Text block for mobile only (single line, no <br/>) */}
+      {/* TEXT BLOCK (always visible at top for mobile, over image on md+) */}
       <div className="block md:hidden text-center px-4 py-10">
         <motion.h2
-          className="font-unbounded text-lg leading-tight mb-4 whitespace-nowrap"
+          className="font-unbounded text-lg leading-tight mb-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
         >
-          Athletes rise. Fans win!
+          Athletes rise.
+          <br />
+          Fans win!
         </motion.h2>
         <motion.button
           className="bg-[#32c7b2] hover:bg-[#29ad9b] text-white text-sm font-semibold px-6 py-2 rounded-md shadow-md transition-all"
@@ -36,18 +38,18 @@ const Footer = () => {
         </motion.button>
       </div>
 
-      {/* Image section — hero layout for md+, simple background for mobile */}
+      {/* Image for Mobile (below text), Full Hero on md+ */}
       <div
-        className="relative w-full bg-no-repeat bg-top bg-contain md:bg-cover md:bg-center md:flex md:items-center md:justify-center"
+        className="relative w-full bg-no-repeat bg-top bg-contain md:bg-cover md:bg-center md:flex md:items-center md:justify-center h-[180px] md:h-[40vw] md:max-h-[440px]"
         style={{
           backgroundImage: `url(${image})`,
-          height: "clamp(180px, 40vw, 540px)",
         }}
       >
-        {/* Text on top of image for md+ only (with line break) */}
-        <div className="hidden md:block absolute top-[20%] left-1/2 transform -translate-x-1/2 text-center px-4">
+
+        {/* TEXT on top of image for md+ only */}
+        <div className="hidden md:block absolute top-[16%] md:left-[10px] md:text-left px-4 max-w-[480px]">
           <motion.h2
-            className="font-unbounded text-3xl md:text-4xl leading-tight mb-4"
+            className="text-white font-unbounded text-2xl md:text-3xl leading-tight mb-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -68,6 +70,7 @@ const Footer = () => {
             Apply
           </motion.button>
         </div>
+
       </div>
 
       {/* Legal Section */}
