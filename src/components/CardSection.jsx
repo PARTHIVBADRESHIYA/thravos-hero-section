@@ -33,15 +33,17 @@ const cardVariants = {
 };
 
 const CardSection = () => (
-  <section className="w-full px-4 py-10 md:py-6 bg-[#0f0f0f] flex flex-col items-center">
-    <div className="absolute inset-x-0 md:mb-3 h-[2px] bg-gradient-to-r from-transparent via-[#2BB6A9] to-transparent z-[1000] pointer-events-none" />
+  <section className="w-full px-4 py-10 md:py-14 bg-[#0f0f0f] flex flex-col items-center relative">
+    {/* ✅ Fixed Gradient Divider with relative container */}
+    <div className="absolute top-8 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2BB6A9] to-transparent z-10 pointer-events-none" />
 
-    <h2 className="text-3xl font-['unbounded'] text-white mb-2 mt-3 md:mt-4 text-center">
+    <h2 className="text-2xl md:text-3xl font-['unbounded'] text-white mb-2 mt-3  text-center">
       Why join Thravos?
     </h2>
     <p className="text-gray-300 md:text-[22px] font-open-sans text-center text-base mb-10">
       All you need to grow and get rewarded
     </p>
+
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
       {cards.map((card, idx) => (
         <motion.div
@@ -62,7 +64,6 @@ const CardSection = () => (
         </motion.div>
       ))}
     </div>
-
   </section>
 );
 

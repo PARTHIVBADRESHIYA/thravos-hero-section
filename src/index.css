@@ -2,4 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ✅ Override only for zoomed-out range */
+@media screen and (max-width: 1023px) and (min-width: 769px) {
+  .footer-text {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+  }
 
+  .footer-image-wrapper {
+    background-position: center !important;
+    background-size: contain !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+  }
+}

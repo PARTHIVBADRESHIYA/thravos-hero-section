@@ -41,9 +41,12 @@ const fadeUp = {
 };
 
 const AthletesSection = () => (
-  <section className="w-full pt-16 pb-24 px-4 bg-[#0f0f0f] flex flex-col items-center">
+  <section className="w-full py-8 px-4 bg-[#0f0f0f] flex flex-col items-center relative">
+    {/* ✅ Gradient Divider now properly anchored */}
+    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2BB6A9] to-transparent z-[1000] pointer-events-none" />
+
     <motion.h2
-      className="text-[22px] md:text-[38px] text-white mb-2 md: mt-12 text-center font-unbounded"
+      className="text-[22px] md:text-[38px] text-white mb-2 mt-12 text-center font-unbounded"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -101,11 +104,8 @@ const AthletesSection = () => (
         </motion.div>
       ))}
     </div>
-
-    <div className="absolute inset-x-0 mt-6 h-[2px] bg-gradient-to-r from-transparent via-[#2BB6A9] to-transparent z-[1000] pointer-events-none" />
-
   </section>
-
 );
+
 
 export default AthletesSection;
