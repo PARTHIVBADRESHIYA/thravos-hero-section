@@ -105,7 +105,8 @@ const Footer = () => {
 
       {/* ✅ Legal Section */}
       <div className="w-full px-4 sm:px-6 md:px-12 py-4 bg-[#02343e] backdrop-blur-sm border-t border-white/10 text-sm text-white">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+  <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+
           <p className="text-center md:text-left">©2025, All rights reserved.</p>
           <div className="hidden md:flex gap-4">
             <a href="#" className="hover:underline">
